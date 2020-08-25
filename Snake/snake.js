@@ -1,8 +1,11 @@
 import { getInputDirection } from "./input.js"
 
 export const SNAKE_SPEED = 5
+export let score = 0;
+
 const snakeBody = [{ x: 10, y: 11 }]
 let newSegments = 0
+
 
 export function update() {
     addSegments()
@@ -26,6 +29,10 @@ export function draw(gameBoard) {
     })
 }
 
+export function showScore(scoreBoard) {
+    scoreBoard.innerHTML = "Current Score: " + score + " !"
+}
+
 export function expandSnake(amount) {
     newSegments += amount
 }
@@ -46,6 +53,9 @@ export function snakeIntersection() {
 }
 
 function equalPositions(pos1, pos2) {
+    if(pos1.x === pos2.x && pos1.y === pos2.y){
+        score = score + 1
+    }
     return pos1.x === pos2.x && pos1.y === pos2.y
 }
 
