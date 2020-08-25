@@ -18,7 +18,7 @@ function switchView(tab){
             window.location = 'Snake/snakegame.html';
             break
         case "Home":
-            window.location = 'home.html';
+            window.location = 'index.html';
             break
     }
 }
